@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace Sample.WebApp1
+namespace Sample.WebApp
 {
   public class Program
   {
@@ -20,6 +20,10 @@ namespace Sample.WebApp1
         Host.CreateDefaultBuilder(args)
             .ConfigureWebHostDefaults(webBuilder =>
             {
+              webBuilder.UseKestrel(options =>
+              {
+                options.ListenAnyIP(8080);
+              });
               webBuilder.UseStartup<Startup>();
             });
   }

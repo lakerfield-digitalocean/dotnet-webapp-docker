@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Sample.WebApp1
+namespace Sample.WebApp
 {
   public class Startup
   {
@@ -32,7 +32,7 @@ namespace Sample.WebApp1
       {
         endpoints.MapGet("/", async context =>
         {
-          await context.Response.WriteAsync($"Hello {Constants.Name}! It's {DateTime.Now} at the web server.");
+          await context.Response.WriteAsync($"Hello {Constants.Name}! It's {DateTime.Now} at the {Environment.MachineName} web server.");
         });
       });
     }
