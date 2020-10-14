@@ -36,7 +36,7 @@ namespace Sample.WebApp
           await context.Response.WriteAsync(Environment.NewLine);
           await context.Response.WriteAsync(Environment.NewLine);
           foreach (var header in context.Request.Headers)
-            await context.Response.WriteAsync($"{header.Key}: {header.Value}");
+            await context.Response.WriteAsync($"{header.Key}: {header.Value}{Environment.NewLine}");
         });
       });
     }
