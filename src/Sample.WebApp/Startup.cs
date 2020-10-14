@@ -33,6 +33,10 @@ namespace Sample.WebApp
         endpoints.MapGet("/", async context =>
         {
           await context.Response.WriteAsync($"Hello {Constants.Name}! It's {DateTime.Now} at the {Environment.MachineName} web server.");
+          await context.Response.WriteAsync(Environment.NewLine);
+          await context.Response.WriteAsync(Environment.NewLine);
+          foreach (var header in context.Request.Headers)
+            await context.Response.WriteAsync($"{header.Key}: {header.Value}");
         });
       });
     }
